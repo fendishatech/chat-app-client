@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  # Development service
+  tewedj-client-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - VITE_API_URL=http://localhost:3000
+    networks:
+      - tewedj-network
+    container_name: tewedj-client-dev
+    restart: unless-stopped
+
+  # Production service
+  tewedj-client-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+      - VITE_API_URL=http://localhost:3000
+    networks:
+      - tewedj-network
+    container_name: tewedj-client-prod
+    restart: unless-stopped
+    profiles:
+      - production
+
+  # Optional: Backend service (if you want to include your chat server)
+  # tewedj-server:
+  #   image: node:20-alpine
+  #   working_dir: /app
+  #   volumes:
+  #     - ../tewedj-server:/app  # Adjust path to your server
+  #   ports:
+  #     - "3000:3000"
+  #   command: ["npm", "start"]
+  #   networks:
+  #     - tewedj-network
+  #   container_name: tewedj-server
+  #   restart: unless-stopped
+
+networks:
+  tewedj-network:
+    driver: bridge
+
+volumes:
+  node_modules: 
