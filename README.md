@@ -2,7 +2,7 @@
 
 A modern, real-time chat application built with React, TypeScript, Vite, and Socket.IO. Features a beautiful UI designed with shadcn/ui components and Tailwind CSS.
 
-![Tewedj Chat Application](./chat-app-ui/screencapture-localhost-5173-2025-06-18-23_13_00.png)
+![Tewedj Chat Application](./chat-app-ui/screencapture-localhost-5174-2025-06-19-09_42_20.png)
 
 ## ✨ Features
 
