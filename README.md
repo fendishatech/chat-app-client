@@ -49,8 +49,8 @@ A modern, real-time chat application built with React, TypeScript, Vite, and Soc
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd tewedj-client
+   git clone https://github.com/fendishatech/chat-app-client.git
+   cd chat-app-client
    ```
 
 2. **Install dependencies**

@@ -1,18 +1,12 @@
-# Multi-stage Dockerfile for React + Vite application
 
-# Development stage
 FROM node:20-alpine AS development
 
-# Set working directory
 WORKDIR /app
 
-# Install pnpm globally
 RUN npm install -g pnpm
 
-# Copy package files
 COPY package.json pnpm-lock.yaml ./
 
-# Install dependencies
 RUN pnpm install
 
 # Copy source code
